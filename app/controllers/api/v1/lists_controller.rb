@@ -1,13 +1,18 @@
 class Api::V1::ListsController < ApplicationController
 
+  def index
+    lists = List.all
+    render json: lists
+  end
+
   def show
     list = List.find(params[:id])
     render json: list
   end
 
   def create
-    list = List.create(users_params)
-    render json: list, include: :parks
+    list = List.create(lists_params)
+    render json: list
   end
 
   def update
