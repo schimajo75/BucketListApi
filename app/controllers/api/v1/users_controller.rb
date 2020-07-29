@@ -1,7 +1,8 @@
 class Api::V1::UsersController < ApplicationController
   def index
     users = User.all
-    render json: users, include: [:parks, :lists ]
+    render json: users
+    # render json: users, include: [:parks, :lists ]
   end
 
   def show
@@ -29,10 +30,6 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  # def routine_exercises
-  #   exercises = Routine.find(params[:id]).exercises
-  #   render json: exercises
-  # end
 
   private
 
